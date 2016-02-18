@@ -1,0 +1,28 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "A central hub for instructors and students to create, take, and track quizzes on a Node.js back-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serkolch/QuizApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serkolch/QuizApp/issues"
+  },
+  "homepage": "https://github.com/serkolch/QuizApp#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7",
+    "nodemon": "^1.8.1",
+    "semantic-ui": "^2.1.8"
+  }
+}
