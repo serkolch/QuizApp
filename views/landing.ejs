@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuizApp</title>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+  <script src="dist/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/application.css">
+  <link rel="stylesheet" type="text/css" href="css/navigation.css">
+  <link rel="stylesheet" type="text/css" href="css/landing.css">
+  <link rel="icon" type="image/png" href="images/q-icon.png" sizes="16x16">
+  <script src="js/landing.js"></script>
+</head>
+<body>
+
+  <div id="nav-bar" class="ui menu secondary blue inverted">
+    <h2 class="item logo">QuizApp</h2>
+    <div class="right menu sign-in">
+      <div class="inline fields">
+        <form method="post" action="/login">
+        <div class="ui mini input">
+          <input type="text" name="email" placeholder="Email">
+        </div>
+        <div class="ui mini input">
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <button id="sign-in-button" class="tiny ui button" type="submit">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-body">
+
+    <div class="ui raised segment sign-up">
+      <div id="sign-up" class="ui form">
+        <h2 class="ui header">Sign-Up</h2>
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" name="first-name" placeholder="First Name">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" name="last-name" placeholder="Last Name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="text" name="email" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox">
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <button id="sign-up-button" class="ui disabled button" type="submit">Sign Up</button>
+        <label id="submit-label"></label>
+      </div>
+      <h2 id="thank-you" class="ui header">Thank you for signing up! <br>Please check your email and verify</h2>
+    </div>
+
+  </div>
+
+</body>
+</html>

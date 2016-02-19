@@ -1,0 +1,29 @@
+.landing-body {
+  background-image: url('https://media.giphy.com/media/3oEdv539t8XuOua6zu/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: -14px;
+  display: flex;
+  justify-content: center;
+}
+
+.sign-up {
+  align-self: center;
+  width: 600px;
+}
+
+#thank-you {
+  display: none;
+  text-align: center;
+  margin-top: 5px;
+}
+
+#nav-bar {
+  display: flex;
+}
+
+.sign-in {
+  align-self: center;
+  padding-right: 20px;
+}
