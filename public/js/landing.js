@@ -1,41 +1,27 @@
 $(document).ready(function(){
 
+  // Set background image to height of window
   var menuHeight = $('.menu').height();
   var windowHeight = $(window).height();
-  $('.landing-body').css('height',windowHeight-menuHeight);
+  $('.landing-body').css('height',windowHeight-menuHeight-1);
 
-  var $firstName = $('#sign-up input').eq(0);
-  var $lastName = $('#sign-up input').eq(1);
-  var $email = $('#sign-up input').eq(2);
-  var $password = $('#sign-up input').eq(3);
-  var $terms = $('#sign-up input').eq(4)
-  var $signUp = $('#sign-up-button');
-  var $submitLabel = $('#submit-label');
-
-  var termsAreAgreed = function(){
-
-    if ($terms.prop('checked') === true) {
-      ($signUp.removeClass('disabled'))
+  // Enable log in when there's an email and password (via submit button, enter button)
+  var $emailLogIn = $('.sign-in input').eq(0);
+  var $passwordLogIn = $('.sign-in input').eq(1);
+  var $logIn = $('#sign-in-button')
+  var checkLogIns = function(){
+    if ($emailLogIn.val() && $passwordLogIn.val().length >= 5){
+      $logIn.removeClass('disabled')
     } else {
-      ($signUp.addClass('disabled'))
+      $logIn.addClass('disabled')
     }
   }
-
-  $terms.on('click',termsAreAgreed)
-
-  $signUp.on('click',function(){
-
-    if (!$firstName.val() || !$lastName.val() || !$email.val() || !$password.val()){
-      $submitLabel.text('Please complete empty fields');
-    } else {
-      if ($password.val().length<6){
-        $submitLabel.text('Password must be at least 6 characters');
-      } else {
-        $('.segment').animate({height: '100px'},1000);
-        $('#thank-you').toggle();
-        $('#sign-up').toggle();
+  $('.sign-in input').on('keypress',checkLogIns);
+  $('.sign-in input').on('keydown',function(event){
+    if (event.keyCode===13){
+      if (!$emailLogIn.val() || $passwordLogIn.val().length < 6) {
+        event.preventDefault();
       }
     }
   })
-
 })

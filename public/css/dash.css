@@ -1,0 +1,32 @@
+a {
+  color: black;
+}
+
+.side-bar {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  margin: 0 0 0 22px;
+}
+
+.test {
+  position: absolute;
+  left: 232px;
+  background-color: #008FBF;
+  margin: 0;
+}
+
+#data-divider {
+  display: flex;
+}
+
+#left-data {
+  width: 170px;
+}
+
+.ui.list {
+  border: 1px solid rgba(0,50,150,0.3);
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 40px;
+}
