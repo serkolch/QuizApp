@@ -30,3 +30,22 @@ a {
   overflow-y: scroll;
   height: 40px;
 }
+
+.selected {
+  background-color: rgb(230,230,230);
+}
+
+.selected:hover {
+  background-color: rgb(200,200,200);
+}
+
+.side-menu {
+  width: 170px;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+
+.controls-scroll {
+  overflow: hidden;
+  overflow-y: scroll;
+}

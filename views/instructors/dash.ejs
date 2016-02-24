@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuizApp</title>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+  <script src="dist/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/instructors/dash.css">
+  <link rel="stylesheet" type="text/css" href="css/application.css">
+  <link rel="stylesheet" href="chartist/dist/chartist.min.css">
+  <link rel="icon" type="image/png" href="images/q-icon.png" sizes="16x16">
+  <script src="js/instructors/dash.js"></script>
+</head>
+<body>
+
+  <div id="nav-bar" class="ui menu secondary blue inverted">
+    <h2 class="item logo">QuizApp</h2>
+    <div class="right menu sign-in">
+      <div class="ui blue buttons">
+        <div class="ui button"><%= user %></div>
+        <div class="ui floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit User</div>
+            <div class="item"><i class="delete icon"></i><a href="/logout" class="ui link items"> Log Out</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-body">
+    <div class="container">
+      <div class="side-bar">
+        <div class="ui blue segment">
+          <h3 class="ui dividing header">
+            Control Panel
+          </h3>
+          <div class="controls">
+            <select class="ui dropdown side-menu">
+              <option value="0">Sample</option>
+              <option value="1">Cohort 1</option>
+              <option value="2">Cohort 2</option>
+            </select>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="write icon"></i>
+              Create Quiz
+            </button>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="file outline icon"></i>
+              Today's Quiz
+            </button>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="copy icon"></i>
+              All Quizzes
+            </button>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="users icon"></i>
+              All Students
+            </button>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="add user icon"></i>
+              Add Student
+            </button>
+            <button class="ui basic right labeled icon button side-menu">
+              <i class="university icon"></i>
+              Add Cohort
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="test ui blue segment">
+        <h3 class="ui dividing header">
+          Cohort View - Sample
+        </h3>
+        <div id="data-divider">
+          <div id="left-data">
+            <h5 class="ui header">Quiz Performance</h5> 
+            <div id="graph-1-list" class="ui list">
+              <a href="http://www.google.com" class="item">Quiz 1</a>
+              <a href="http://www.google.com" class="item">Quiz 2</a>
+              <a href="http://www.google.com" class="item">Quiz 3</a>
+              <a href="http://www.google.com" class="item">Quiz 4</a>
+              <a href="http://www.google.com" class="item">Quiz 5</a>
+            </div>
+            <h5 class="ui header">Student Progress</h5> 
+            <div id="graph-2-list" class="ui list">
+              <a href="http://www.google.com" class="item">Student 1</a>
+              <a href="http://www.google.com" class="item">Student 2</a>
+              <a href="http://www.google.com" class="item">Student 3</a>
+              <a href="http://www.google.com" class="item">Student 4</a>
+              <a href="http://www.google.com" class="item">Student 5</a>
+            </div>
+          </div>
+          <div id="right-data">
+            <div id="chart1" class="ct-chart ct-perfect-fourth"></div>
+            <div id="chart2" class="ct-chart ct-perfect-fourth"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="chartist/dist/chartist.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuizApp</title>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+  <script src="dist/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/dash.css">
+  <link rel="stylesheet" type="text/css" href="css/application.css">
+  <link rel="stylesheet" href="chartist/dist/chartist.min.css">
+  <link rel="icon" type="image/png" href="images/q-icon.png" sizes="16x16">
+  <script src="js/dash.js"></script>
+</head>
+<body>
+
+  <div id="nav-bar" class="ui menu secondary blue inverted">
+    <h2 class="item logo">QuizApp</h2>
+    <div class="right menu sign-in">
+      <div class="ui blue buttons">
+        <div class="ui button"><%= user %></div>
+        <div class="ui floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit User</div>
+            <div class="item"><i class="delete icon"></i><a href="/logout" class="ui link items"> Log Out</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="chartist/dist/chartist.min.js"></script>
+</body>
+</html>

@@ -67,7 +67,13 @@ app.post('/login', function(req, res) {
 });
 
 app.get('/dash',function(req,res){
-  res.render('dash',{user:req.session.email})
+  if (req.session.type === 'instructor'){
+    res.render('instructors/dash',{user:req.session.email})
+  } else if (req.session.type === 'student') {
+    res.render('students/dash',{user:req.session.email})
+  } else {
+    res.redirect('/')
+  }
 })
 
 app.get('/logout',function(req,res){
