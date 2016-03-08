@@ -38,9 +38,9 @@
           </h3>
           <div class="controls">
             <select class="ui dropdown side-menu">
-              <option value="0">Sample</option>
-              <option value="1">Cohort 1</option>
-              <option value="2">Cohort 2</option>
+              <% cohorts.forEach(function(cohort){ %>
+              <option value="<%= cohort %>"><%= cohort %></option>
+              <% }) %>
             </select>
             <button class="ui basic right labeled icon button side-menu">
               <i class="write icon"></i>
@@ -63,6 +63,10 @@
               Add Student
             </button>
             <button class="ui basic right labeled icon button side-menu">
+              <i class="remove user icon"></i>
+              Remove Student
+            </button>            
+            <button class="ui basic right labeled icon button side-menu">
               <i class="university icon"></i>
               Add Cohort
             </button>
@@ -70,26 +74,24 @@
         </div>
       </div>
       <div class="test ui blue segment">
-        <h3 class="ui dividing header">
-          Cohort View - Sample
+        <h3 id="cohort-view" class="ui dividing header">
+          Cohort View - <%= cohorts[0] %>
         </h3>
         <div id="data-divider">
           <div id="left-data">
             <h5 class="ui header">Quiz Performance</h5> 
             <div id="graph-1-list" class="ui list">
-              <a href="http://www.google.com" class="item">Quiz 1</a>
-              <a href="http://www.google.com" class="item">Quiz 2</a>
-              <a href="http://www.google.com" class="item">Quiz 3</a>
-              <a href="http://www.google.com" class="item">Quiz 4</a>
-              <a href="http://www.google.com" class="item">Quiz 5</a>
+              <a href="http://www.google.com" class="item">2016-02-21</a>
+              <a href="http://www.google.com" class="item">2016-02-23</a>
+              <a href="http://www.google.com" class="item">2016-02-24</a>
+              <a href="http://www.google.com" class="item">2016-02-25</a>
+              <a href="http://www.google.com" class="item">2016-02-27</a>
             </div>
             <h5 class="ui header">Student Progress</h5> 
             <div id="graph-2-list" class="ui list">
-              <a href="http://www.google.com" class="item">Student 1</a>
-              <a href="http://www.google.com" class="item">Student 2</a>
-              <a href="http://www.google.com" class="item">Student 3</a>
-              <a href="http://www.google.com" class="item">Student 4</a>
-              <a href="http://www.google.com" class="item">Student 5</a>
+              <% students.forEach(function(student){ %>
+                <a href="/students/<%=student.id%>" class="item"><%= student.email %></a>
+              <% }) %>
             </div>
           </div>
           <div id="right-data">

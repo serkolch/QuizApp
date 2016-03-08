@@ -67,8 +67,37 @@ app.post('/login', function(req, res) {
 });
 
 app.get('/dash',function(req,res){
+  var data = {cohorts:[],students:[],quizzes:[]};
+  var cohortIds
+  var students
+  var quizzes
+
+  var doRender = function(){
+    if (data.students.length===students.length && data.cohorts.length===cohortIds.length){
+      res.render('instructors/dash',{user:req.session.email, cohorts: data.cohorts,students: data.students})
+    }
+  }
+
   if (req.session.type === 'instructor'){
-    res.render('instructors/dash',{user:req.session.email})
+    db.collection('users').findOne({_id:ObjectId(req.session.userId)},function(err,result){
+      cohortIds = result.cohorts;
+      cohortIds.forEach(function(cohortId){
+        db.collection('cohorts').findOne({_id: ObjectId(cohortId)},function(err,result){
+          if (data.cohorts.length===0){
+            students = result.students
+            quizzes = result.quizzes
+            students.forEach(function(student){
+              db.collection('users').findOne({_id: ObjectId(student)},function(err,result){
+                data.students.push({id:student,email:result.email})
+                doRender();
+              })
+            })
+          }
+          data.cohorts.push(result.name)
+          doRender();
+        })
+      })
+    })
   } else if (req.session.type === 'student') {
     res.render('students/dash',{user:req.session.email})
   } else {
@@ -81,6 +110,54 @@ app.get('/logout',function(req,res){
   req.session.userId = null;
   req.session.type = null;
   res.redirect('/');
+})
+
+app.get('/instructor/ajax',function(req,res){
+  var data = {}
+  var cohortIds
+  var cohortNames = []
+  var students = {}
+
+  var doRender = function(){
+    var boolean = true
+    for (var i=0;i<cohortNames.length;i++){
+      var cohortName = cohortNames[i];
+      if (data[cohortName].students.length!== students[cohortName].length){
+        boolean = false
+      }
+    }
+    if (boolean){
+      console.log(boolean)
+      res.json(data)
+    }
+  }
+
+  var doStudents = function(){
+    if (cohortIds.length===Object.keys(students).length){
+      Object.keys(students).forEach(function(cohort){
+        data[cohort] = {students:[],quizzes:[]}
+        students[cohort].forEach(function(student){
+          db.collection('users').findOne({_id:ObjectId(student)},function(err,result){
+            // console.log(data[cohort].students)
+            data[cohort].students.push({id: result._id,email: result.email})
+            doRender();
+          })
+        })
+      })
+    }
+  }
+
+  db.collection('users').findOne({_id: ObjectId(req.session.userId)},function(err,result){
+    cohortIds = result.cohorts
+    cohortIds.forEach(function(cohortId){
+      db.collection('cohorts').findOne({_id: ObjectId(cohortId)},function(err,result){
+        cohortNames.push(result.name)
+        students[result.name] = result.students
+        doStudents()
+      })
+    })
+  })
+
 })
 
 app.listen(process.env.PORT || 3000);

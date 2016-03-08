@@ -5,13 +5,13 @@ a {
 .side-bar {
   position: absolute;
   left: 0;
-  width: 200px;
+  width: 220px;
   margin: 0 0 0 22px;
 }
 
 .test {
   position: absolute;
-  left: 232px;
+  left: 252px;
   background-color: #008FBF;
   margin: 0;
 }
@@ -21,7 +21,7 @@ a {
 }
 
 #left-data {
-  width: 170px;
+  width: 190px;
 }
 
 .ui.list {
@@ -40,7 +40,7 @@ a {
 }
 
 .side-menu {
-  width: 170px;
+  width: 190px;
   margin-bottom: 0.5em;
   text-align: left;
 }
