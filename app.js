@@ -160,4 +160,21 @@ app.get('/instructor/ajax',function(req,res){
 
 })
 
+app.get('/quizzes',function(req,res){
+  res.render('quizzes/index')
+})
+
+app.get('/quiz',function(req,res){
+  res.render('quizzes/index')
+})
+
+app.get('/quizzes/:id',function(req,res){
+  res.render('quizzes/index')
+})
+
+app.get('/quizzes/new',function(req,res){
+  res.render('quizzes/index')
+})
+
+
 app.listen(process.env.PORT || 3000);

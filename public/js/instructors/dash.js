@@ -115,6 +115,9 @@ $(document).ready(function(){
     })
   }
   preventLinkClick();
+  $('.ui.list a:first-child').addClass('selected')
+  $('#graph-1-list a:first-child').text('Go To '+ $('#graph-1-list a:first-child').text())
+  $('#graph-2-list a:first-child').text('Go To '+ $('#graph-2-list a:first-child').text())
 
   $('select').on('change',function(){
     var cohort = $('select').val()
